@@ -1,0 +1,56 @@
+<!doctype html>
+<html>
+<head>
+    <title>rectExample</title>
+    <meta charset='utf-8' />
+</head>
+<body>
+<canvas id='example'>Обновите браузер</canvas>
+<canvas id='gamer'>Обновите браузер</canvas>
+<script>
+    var example = document.getElementById("example"),
+            gamerElement = document.getElementById("gamer"),
+            gamer = gamerElement.getContext('2d'),
+            ctx = example.getContext('2d'),
+            areaX = screen.width / 3,
+            areaY = 100;
+    example.backgroundColor = '#000';
+    example.width = screen.width;
+    example.height = screen.height;
+    gamerElement.width = '40';
+    gamerElement.height = '50';
+    gamerElement.style.position ='absolute';
+    gamerElement.style.top = '270px';
+    gamerElement.style.left = '515px';
+    ctx.strokeRect(areaX, areaY, 90, 200);
+
+    ctx.fillRect(areaX + 20, areaY, 10, 10);
+    ctx.fillRect(areaX + 30, areaY+10, 10, 10);
+    ctx.fillRect(areaX + 10, areaY+10, 10, 10);
+    ctx.fillRect(areaX + 20, areaY+20, 10, 10);
+    ctx.fillRect(areaX + 10, areaY+30, 10, 10);
+    ctx.fillRect(areaX + 30, areaY+30, 10, 10);
+
+    ctx.fillRect(areaX + 60, areaY+40, 10, 10);
+    ctx.fillRect(areaX + 70, areaY+50, 10, 10);
+    ctx.fillRect(areaX + 50, areaY+50, 10, 10);
+    ctx.fillRect(areaX + 60, areaY+60, 10, 10);
+    ctx.fillRect(areaX + 50, areaY+70, 10, 10);
+    ctx.fillRect(areaX + 70, areaY+70, 10, 10);
+
+    ctx.fillRect(areaX + 20, areaY+120, 10, 10);
+    ctx.fillRect(areaX + 30, areaY+130, 10, 10);
+    ctx.fillRect(areaX + 10, areaY+130, 10, 10);
+    ctx.fillRect(areaX + 20, areaY+140, 10, 10);
+    ctx.fillRect(areaX + 10, areaY+150, 10, 10);
+    ctx.fillRect(areaX + 30, areaY+150, 10, 10);
+
+    gamer.fillRect(areaX + 60, areaY+160, 10, 10);
+    gamer.fillRect(areaX + 70, areaY+170, 10, 10);
+    gamer.fillRect(areaX + 50, areaY+170, 10, 10);
+    gamer.fillRect(areaX + 60, areaY+180, 10, 10);
+    gamer.fillRect(areaX + 50, areaY+190, 10, 10);
+    gamer.fillRect(areaX + 70, areaY+190, 10, 10);
+</script>
+</body>
+</html>
