@@ -26,3 +26,14 @@ function Car(x, y, oneBlockWidth, oneBlockHeight) {
     }
 }
 
+var car1 = new Car(10, 10, 10, 10);
+car1.draw();
+
+var car2 = new Car(60, 10, 10, 10);
+car2.draw();
+
+var car3 = new Car(110, 10, 10, 10);
+car3.draw();
+
+var player = new Car(60, 250, 10, 10);
+player.draw();
