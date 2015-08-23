@@ -2,12 +2,13 @@ window.onload = function () {
 
     var game = document.getElementById('game'),
         gameContext = game.getContext('2d'),
-        area = new Area(0, 0, 150, 300, '#a1a1a1', '#000'),
-        car2 = new Car(60, 10, 10, 10, '#000'),
-        car1 = new Car(10, 10, 10, 10, '#000'),
-        car3 = new Car(110, 10, 10, 10, '#000'),
-        cars = [car1, car2, car3],
-        player = new Car(60, 250, 10, 10, '#000');
+        area = new Area(0, 0, 90, 300, '#a1a1a1', '#000'),
+        car2 = new Car(30, 10, 10, 10, '#000'),
+        car1 = new Car(0, 10, 10, 10, '#000'),
+        car3 = new Car(60, 10, 10, 10, '#000'),
+        player = new Car(30, 250, 10, 10, '#000'),
+        startButton = document.querySelector('#start'),
+        stopInterval;
     game.width = '156';
     game.height = '300';
 
@@ -49,9 +50,15 @@ window.onload = function () {
         self.moveDown = function () {
             self.y += 10;
             if (self.y >= area.height) {
-                self.y = -getRandomInt(40, 12 * car1.oneBlockHeight);
+                self.y = -getRandomInt(0, 12 * car1.oneBlockHeight);
             }
             draw();
+        };
+    }
+
+    function crash() {
+        if(player.x == car1.x || player.y == car1.y || player.x == car2.x || player.y == car2.y || player.x == car3.x || player.y == car3.y) {
+            clearInterval(stopInterval);
         }
     }
 
@@ -59,14 +66,26 @@ window.onload = function () {
         return Math.floor(Math.random() * (max - min + 1)) + min;
     }
 
-    function getCarByIndex(index) {
-        return cars[index];
+    function setStart() {
+        car1.y = getRandomInt(area.y - 40, 12 * car1.oneBlockHeight);
+        car2.y = getRandomInt(area.y, 12 * car1.oneBlockHeight);
+        car3.y = getRandomInt(area.y + 40, 12 * car1.oneBlockHeight);
     }
 
-    function setStart() {
-        car1.y = getRandomInt(area.x-40, 12 * car1.oneBlockHeight);
-        car2.y = getRandomInt(area.x-40, 12 * car1.oneBlockHeight);
-        car2.y = getRandomInt(area.x-40, 12 * car1.oneBlockHeight);
+    function checkCoordinates(car1, car2, car3) {
+//        var diff;
+//        if (0 < car1.y - car2.y < 40) {
+//            diff = 40 - Math.abs(car1.y - car2.y);
+//            car1.y -= diff;
+//        } else {
+//            if(car2.y - car1.y < 40) {
+//                car1 += diff;
+//            }
+//        }
+//        if (car2.y - car3.y < 40) {
+//            diff = 40 - Math.abs(car2.y - car3.y);
+//            car2.y -= diff;
+//        }
     }
 
     function Area(x, y, width, height, backgroundColor, borderColor) {
@@ -87,6 +106,17 @@ window.onload = function () {
             gameContext.strokeStyle = borderColor;
             gameContext.stroke();
         }
+    }
+
+    function start() {
+        setStart();
+        var stopInterval = setInterval(function () {
+            car1.moveDown();
+            car2.moveDown();
+            car3.moveDown();
+            crash();
+            //            checkCoordinates(car1, car2, car3);
+        }, 50);
     }
 
     function draw() {
@@ -114,13 +144,7 @@ window.onload = function () {
             }
         });
 
-        setStart();
-        setInterval(function () {
-            car1.moveDown();
-            car2.moveDown();
-            car3.moveDown();
-        }, 500);
-
+        startButton.addEventListener('click', start);
     }
 
     init();
