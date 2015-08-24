@@ -49,6 +49,7 @@ window.onload = function () {
 
         self.moveDown = function () {
             self.y += 10;
+            crash(self);
             if (self.y >= area.height) {
                 self.y = -getRandomInt(0, 12 * car1.oneBlockHeight);
             }
@@ -56,8 +57,8 @@ window.onload = function () {
         };
     }
 
-    function crash() {
-        if(player.x == car1.x || player.y == car1.y || player.x == car2.x || player.y == car2.y || player.x == car3.x || player.y == car3.y) {
+    function crash(car) {
+        if ((player.x <= car.x && car.x <= player.x + 30) && (player.y <= car.y && car.y <= player.y + 40)) {
             clearInterval(stopInterval);
         }
     }
@@ -114,9 +115,10 @@ window.onload = function () {
             car1.moveDown();
             car2.moveDown();
             car3.moveDown();
-            crash();
-            //            checkCoordinates(car1, car2, car3);
+//            checkCoordinates(car1, car2, car3);
         }, 50);
+
+        return stopInterval;
     }
 
     function draw() {
@@ -144,7 +146,9 @@ window.onload = function () {
             }
         });
 
-        startButton.addEventListener('click', start);
+        startButton.addEventListener('click', function () {
+            var stopInterval = start();
+        });
     }
 
     init();
