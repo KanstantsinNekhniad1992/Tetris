@@ -1,5 +1,5 @@
 window.onload = function () {
-
+   // test tetris game
     var game = document.getElementById('game'),
         gameContext = game.getContext('2d'),
         area = new Area(0, 0, 90, 300, '#a1a1a1', '#000'),
