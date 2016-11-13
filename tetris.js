@@ -103,7 +103,6 @@ window.onload = function () {
             car1.moveDown();
             car2.moveDown();
             car3.moveDown();
-//            checkCoordinates(car1, car2, car3);
         }, 50);
 
         return stopInterval;
