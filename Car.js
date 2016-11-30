@@ -5,7 +5,7 @@ function Car(x, y, oneBlockWidth, oneBlockHeight) {
     self.y = y;
     self.oneBlockWidth = oneBlockWidth;
     self.oneBlockHeight = oneBlockHeight;
-
+	// coment
     self.draw = function () {
         gameContext.fillRect(self.x + self.oneBlockWidth, self.y, self.oneBlockWidth, self.oneBlockHeight);
         gameContext.fillRect(self.x + 2 * self.oneBlockWidth, self.y + self.oneBlockHeight, self.oneBlockWidth, self.oneBlockHeight);
