@@ -14,7 +14,7 @@ function Car(x, y, oneBlockWidth, oneBlockHeight) {
         gameContext.fillRect(self.x, self.y + 3 * self.oneBlockHeight, self.oneBlockWidth, self.oneBlockHeight);
         gameContext.fillRect(self.x + 2 * self.oneBlockWidth, self.y + 3 * self.oneBlockHeight, self.oneBlockWidth, self.oneBlockHeight);
     };
-	// add comment to test SSH
+	
     self.moveToRight = function () {
         self.x += 30;
         self.draw();
