@@ -1,5 +1,3 @@
-// add comment from master
-
 window.onload = function () {
    // test tetris game
     var game = document.getElementById('game'),
