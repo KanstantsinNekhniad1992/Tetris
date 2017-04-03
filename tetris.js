@@ -1,7 +1,7 @@
 // add comment from master
 
 window.onload = function () {
-
+   // test tetris game
     var game = document.getElementById('game'),
         gameContext = game.getContext('2d'),
         area = new Area(0, 0, 90, 300, '#a1a1a1', '#000'),
@@ -76,19 +76,7 @@ window.onload = function () {
     }
 
     function checkCoordinates(car1, car2, car3) {
-//        var diff;
-//        if (0 < car1.y - car2.y < 40) {
-//            diff = 40 - Math.abs(car1.y - car2.y);
-//            car1.y -= diff;
-//        } else {
-//            if(car2.y - car1.y < 40) {
-//                car1 += diff;
-//            }
-//        }
-//        if (car2.y - car3.y < 40) {
-//            diff = 40 - Math.abs(car2.y - car3.y);
-//            car2.y -= diff;
-//        }
+
     }
 
     function Area(x, y, width, height, backgroundColor, borderColor) {
@@ -117,7 +105,6 @@ window.onload = function () {
             car1.moveDown();
             car2.moveDown();
             car3.moveDown();
-//            checkCoordinates(car1, car2, car3);
         }, 50);
 
         return stopInterval;
