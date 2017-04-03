@@ -1,3 +1,5 @@
+// add comment from master
+
 window.onload = function () {
 
     var game = document.getElementById('game'),
